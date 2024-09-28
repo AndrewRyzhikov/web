@@ -1,0 +1,144 @@
+.search-bar {
+    display: flex;
+    border: 2px solid #4682B4;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 850px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    border: none;
+}
+
+.search-bar button {
+    background-color: #4682B4;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: opacity;
+}
+
+.search-bar button img {
+    height: 20px;
+}
+
+.search-bar button:hover {
+    background-color: #4169E1;
+}
+
+.header-actions nav {
+    display: flex;
+    font-size: 16px;
+    gap: 15px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+body {
+    font-family: "Arial", serif;
+    border: 1px solid #aea2a9;
+}
+
+.main-page {
+    padding: 20px;
+}
+
+.filter-form .filter .confirmFilter {
+    font-size: 15px;
+}
+
+.filter-form .filter .filter-type {
+    font-size: 18px;
+}
+
+/*.books, .map, .support {*/
+/*margin-bottom: 20px;*/
+/*}*/
+
+.filter-form .filter, .book {
+    padding: 0 0 0 30px;
+}
+
+.books {
+    display: flex;
+    gap: 20px;
+}
+
+.book {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.book #bookImg {
+    width: 200px;
+    height: 280px;
+    border: 10px solid #ccc;
+}
+
+.book .price-and-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.book .price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.book .price-and-button button {
+    border-radius: 20px;
+    background-color: #0d2fda;
+    transition: opacity, background-color 0.3s;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.book .price-and-button button:active, .search-bar button:active {
+    animation: blink 0.5s;
+}
+
+.book .price-and-button button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    padding: 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
