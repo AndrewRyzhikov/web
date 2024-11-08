@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/loadTime.js" defer></script>
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <h1 class="header-title" id="index-link">Улукоморье</h1>
+    </a>
+    <form class="search-bar" action="#" method="get">
+        <input type="text" placeholder="Хочу найти">
+        <button>
+            <img src="images/search.png" type="submit">
+        </button>
+    </form>
+
+    <div class="header-actions">
+        <nav>
+            <a href="cart.html" class="menu-item" id="cart-link">Корзина</a>
+            <a href="login.html" class="menu-item" id="login-link">Войти</a>
+        </nav>
+    </div>
+</header>
+
+<main class="cart-page">
+    <h2>Ваша корзина пуста</h2>
+</main>
+
+<footer>
+    <p id="loadTime"></p>
+    <a href="#">Поддержка</a> |
+    <a href="#">Вопросы и ответы</a> |
+    <a href="#">Акции</a>
+</footer>
+
+<script src="scripts/activePage.js" defer></script>
+</body>
+</html>

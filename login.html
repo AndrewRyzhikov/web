@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Войти</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/loadTime.js" defer></script>
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <h1 class="header-title" id="index-link">Улукоморье</h1>
+    </a>
+    <form class="search-bar" action="#" method="get">
+        <input type="text" placeholder="Хочу найти">
+        <button>
+            <img src="images/search.png" type="submit">
+        </button>
+    </form>
+
+    <div class="header-actions">
+        <nav>
+            <a href="cart.html" class="menu-item" id="cart-link">Корзина</a>
+            <a href="login.html" class="menu-item" id="login-link">Войти</a>
+        </nav>
+    </div>
+</header>
+
+<main class="login-page">
+    <form>
+        <h2>Пожалуйста, войдите</h2>
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" placeholder="Введите имя пользователя">
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" placeholder="Введите пароль">
+
+        <button type="submit">Войти</button>
+    </form>
+</main>
+
+<footer>
+    <p id="loadTime"></p>
+    <a href="#">Поддержка</a> |
+    <a href="#">Вопросы и ответы</a> |
+    <a href="#">Акции</a>
+</footer>
+
+<script src="scripts/activePage.js"></script>
+</body>
+</html>
