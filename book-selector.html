@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Улукоморье</title>
+    <title>Выбор книг</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts/activePage.js"></script>
-    <script src="scripts/books.js" defer></script>
+    <script src="scripts/bookSelector.js"></script>
 </head>
 <body>
 
@@ -20,28 +19,30 @@
             <img src="images/search.png" type="submit">
         </button>
     </form>
-
     <div class="header-actions">
         <nav>
             <a href="cart.html" class="menu-item" id="cart-link">Корзина</a>
             <a href="login.html" class="menu-item" id="login-link">Войти</a>
-            <a href="book-selector.html" class="menu-item" id="book-selector-link">Выбор книг</a>
+            <a href="book-selector.html" class="menu-item active" id="book-selector-link">Выбор книг</a>
         </nav>
     </div>
 </header>
 
-<main class="main-page">
-    <form class="filter-form" action="#" method="get">
-        <div class="filter">
-            <select class="filter-type">
-                <option value="price">Цена</option>
-                <option value="popularity">Популярность</option>
-            </select>
-            <button class="confirmFilter" type="submit">Применить</button>
-        </div>
+<main class="book-selector-page">
+    <h2>Выбор книг</h2>
+    <form id="bookForm">
+        <label for="bookSelect">Выберите книгу:</label>
+        <select id="bookSelect">
+            <option value="Книга 1">Книга 1</option>
+            <option value="Книга 2">Книга 2</option>
+            <option value="Книга 3">Книга 3</option>
+            <option value="Книга 4">Книга 4</option>
+        </select>
+        <button type="submit">Добавить</button>
     </form>
 
-    <section class="books"></section>
+    <h3>Список выбранных книг:</h3>
+    <ul id="bookList" class="book-list"></ul>
 </main>
 
 <footer>

@@ -238,3 +238,57 @@ footer {
         display: none;
     }
 }
+
+.book-list {
+    padding: 0;
+    margin-top: 20px;
+}
+
+.book-selector-page {
+    margin-left: 10px;
+}
+
+.increaseAndDecreaseDiv {
+    display: flex;
+    gap: 10px ;
+}
+
+.book-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background-color: #fefefe;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+
+.book-item span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.book-item .book-count {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4682B4;
+    margin: 0 10px;
+}
+
+.book-item button {
+    background-color: #4682B4;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.book-item button:hover {
+    background-color: #5A9BD6;
+}
