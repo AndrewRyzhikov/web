@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Улукоморье</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts/loadTime.js"></script>
     <script src="scripts/activePage.js"></script>
     <script src="scripts/books.js" defer></script>
 </head>
@@ -26,6 +25,7 @@
         <nav>
             <a href="cart.html" class="menu-item" id="cart-link">Корзина</a>
             <a href="login.html" class="menu-item" id="login-link">Войти</a>
+            <a href="book-selector.html" class="menu-item" id="book-selector-link">Выбор книг</a>
         </nav>
     </div>
 </header>
@@ -41,7 +41,11 @@
         </div>
     </form>
 
-    <section class="books"></section>
+    <section class="books">
+        <div class="loader hidden"></div>
+        <div id="error-message" class="hidden error"></div>
+    </section>
+    <h2>Ваша корзина пуста</h2>
 </main>
 
 <footer>

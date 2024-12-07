@@ -1,40 +1,82 @@
-const books = [
-    {title: "Конституция РФ", price: "500 р", imageSrc: "images/low.webp"},
-    {title: "1984", price: "500 р", imageSrc: "images/1984.webp"},
-    {title: "Vita Nostra", price: "700 р", imageSrc: "images/VitaNostra.webp"},
-    {title: "Мастер и Маргарита", price: "800 р", imageSrc: "images/master.jpeg"},
-    {title: "Преступление и наказание", price: "600 р", imageSrc: "images/crime.webp"}
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const booksSection = document.querySelector('.books');
+    const loader = document.querySelector('.loader');
+    const errorMessage = document.querySelector('#error-message');
 
-const booksSection = document.querySelector('.books');
+    const API_URL = "https://jsonplaceholder.typicode.com/photos";
 
-books.forEach((book) => {
-    const bookDiv = document.createElement('div');
-    bookDiv.classList.add('book');
+    const showLoader = () => {
+        loader.classList.remove('hidden');
+    };
 
-    const img = document.createElement('img');
-    img.id = 'bookImg';
-    img.src = book.imageSrc;
-    img.alt = book.title;
+    const hideLoader = () => {
+        loader.classList.add('hidden');
+    };
 
-    const title = document.createElement('h3');
-    title.textContent = book.title;
+    const showError = (message) => {
+        errorMessage.textContent = `⚠ ${message}`;
+        errorMessage.classList.remove('hidden');
+    };
 
-    const priceAndButtonDiv = document.createElement('div');
-    priceAndButtonDiv.classList.add('price-and-button');
+    const hideError = () => {
+        errorMessage.classList.add('hidden');
+    };
 
-    const price = document.createElement('p');
-    price.classList.add('price');
-    price.textContent = book.price;
+    const renderBooks = (books) => {
+        books.forEach((book) => {
+            const bookDiv = document.createElement('div');
+            bookDiv.classList.add('book');
 
-    const button = document.createElement('button');
-    button.textContent = 'Купить';
+            const img = document.createElement('img');
+            img.id = 'bookImg';
+            img.src = book.thumbnailUrl;
+            img.alt = book.title;
 
-    priceAndButtonDiv.appendChild(price);
-    priceAndButtonDiv.appendChild(button);
-    bookDiv.appendChild(img);
-    bookDiv.appendChild(title);
-    bookDiv.appendChild(priceAndButtonDiv);
+            const title = document.createElement('h3');
+            title.textContent = book.title;
 
-    booksSection.appendChild(bookDiv);
+            const priceAndButtonDiv = document.createElement('div');
+            priceAndButtonDiv.classList.add('price-and-button');
+
+            const price = document.createElement('p');
+            price.classList.add('price');
+            price.textContent = `${Math.floor(Math.random() * 1000 + 300)} р`;
+
+            const button = document.createElement('button');
+            button.textContent = 'Купить';
+
+            priceAndButtonDiv.appendChild(price);
+            priceAndButtonDiv.appendChild(button);
+            bookDiv.appendChild(img);
+            bookDiv.appendChild(title);
+            bookDiv.appendChild(priceAndButtonDiv);
+
+            booksSection.appendChild(bookDiv);
+        });
+    };
+
+    const fetchBooks = async () => {
+        showLoader();
+        hideError();
+
+        try {
+            const response = await fetch(API_URL);
+
+            if (!response.ok) {
+                throw new Error(`Ошибка загрузки данных: ${response.status}`);
+            }
+
+            const books = await response.json();
+
+            const filteredBooks = books.filter(() => Math.random() > 0.5).slice(0, 5);
+
+            renderBooks(filteredBooks);
+        } catch (error) {
+            showError(error.message || 'Что-то пошло не так');
+        } finally {
+            hideLoader();
+        }
+    };
+
+    fetchBooks();
 });
