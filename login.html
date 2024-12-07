@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Войти</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts/loadTime.js"></script>
-    <script src="scripts/activePage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/validator@latest/validator.min.js"></script>
 </head>
 <body>
 
@@ -30,10 +29,15 @@
 </header>
 
 <main class="login-page">
-    <form>
+    <div class="error-container">
+        <p id="error-message" class="error-message" style="display: none;"></p>
+    </div>
+
+    <form id="login-form" novalidate>
         <h2>Пожалуйста, войдите</h2>
-        <label for="username">Имя пользователя:</label>
-        <input type="text" id="username" name="username" placeholder="Введите имя пользователя">
+
+        <label for="login">Электронная почта:</label>
+        <input type="email" id="login" name="login" placeholder="Введите вашу почту">
 
         <label for="password">Пароль:</label>
         <input type="password" id="password" name="password" placeholder="Введите пароль">
@@ -48,6 +52,42 @@
     <a href="#">Вопросы и ответы</a> |
     <a href="#">Акции</a>
 </footer>
+
+<script>
+    function showError(message) {
+        const errorElement = document.getElementById('error-message');
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+
+    function hideError() {
+        const errorElement = document.getElementById('error-message');
+        errorElement.style.display = 'none';
+    }
+
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Предотвращаем отправку формы
+
+        const email = document.getElementById('login').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        // Проверяем email
+        if (!validator.isEmail(email)) {
+            showError('Пожалуйста, введите корректный адрес электронной почты.');
+            return;
+        }
+
+        // Проверяем длину пароля
+        if (!validator.isLength(password, { min: 6 })) {
+            showError('Пароль должен быть не менее 6 символов.');
+            return;
+        }
+
+        // Если ошибок нет, скрываем сообщение и показываем alert
+        hideError();
+        alert('Форма успешно отправлена!');
+    });
+</script>
 
 </body>
 </html>
